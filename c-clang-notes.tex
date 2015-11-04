@@ -64,6 +64,31 @@ Leaf procedure: a procedure that doesn't call any other procedures
 
 [15/11/04]
 
+Many arguments => spill into the stack
+- We only have about 32 registers at most.
+- Use them when we can but use stack if necessary.
+
+printn/printf exercise
+
+Last lecture we looked at leaf functions calls - but what about calling functions?
+
+The order for computing argi is unspecified. Sometimes we swap the order for optimisation.
+f(x++, x) - no guarantee that x++ will be done first
+
+Sometimes we have to have parameters/values inside the frame. (i.e. when using ampersand/address operator)
+- you can't point at a register using &
+- ``escaping variables''
+
+lea = load effective address (we want address, not value)
+
+*p = x
+=>
+movq %rdi, (%rsi)
+(``indirect addressing'')
+
+callq can use *
+callq *-8($rbp)
+
 
 
 
