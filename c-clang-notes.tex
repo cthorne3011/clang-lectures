@@ -89,6 +89,15 @@ movq %rdi, (%rsi)
 callq can use *
 callq *-8($rbp)
 
+[15/11/11]
+
+Constant propagation: e.g. if we have x=42, we can replace (some) occurrences of x with 42
+
+Macros vs inlining:
+- With macros, square(++y) would increment y twice
+
+Careful identifying tail calls: return 5+f(E) is not a tail call
+Tail calls can just use jmpq
 
 
 
